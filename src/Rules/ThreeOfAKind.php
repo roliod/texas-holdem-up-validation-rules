@@ -11,7 +11,7 @@ class ThreeOfAKind extends AbstractRule
     /**
      * @const int
      */
-    private const RANK = 3;
+    private const RANK = 7;
 
     /**
      * @param HandEntity $handEntity
