@@ -4,10 +4,10 @@ declare(strict_types=1);
 namespace Tests\Unit\Rules;
 
 use Tests\BaseTestCase;
-use Roliod\TexasHUPoker\Rules\StraightFlush;
+use Roliod\TexasHUPoker\Rules\Straight;
 use Roliod\TexasHUPoker\Deck\Factories\Entity as EntityFactory;
 
-class StraightFlushTest extends BaseTestCase
+class StraightTest extends BaseTestCase
 {
     /**
      * @dataProvider handDataProvider
@@ -21,8 +21,8 @@ class StraightFlushTest extends BaseTestCase
     ): void {
         $handEntity = EntityFactory::buildHandEntity($sequence);
 
-        $twoPair = new StraightFlush();
-        $response = $twoPair->validate($handEntity);
+        $straight = new Straight();
+        $response = $straight->validate($handEntity);
 
         self::assertSame($matches, $response->getMatches());
     }
@@ -34,19 +34,15 @@ class StraightFlushTest extends BaseTestCase
     {
         return [
             'is_valid' => [
-                'sequence' => 'QH JH 10H 9H 8H',
+                'sequence' => 'QH JC 10H 9H 8H',
                 'matches' => true,
             ],
             'is_valid_2' => [
-                'sequence' => 'QH 8H 7H 6H 5H',
+                'sequence' => 'QH 8H 7C 6H 5H',
                 'matches' => true,
             ],
             'is_invalid' => [
                 'sequence' => '2S 10C 5C 5H 4H',
-                'matches' => false,
-            ],
-            'is_invalid_2' => [
-                'sequence' => '2S 10S 5S 5S 4S',
                 'matches' => false,
             ]
         ];
