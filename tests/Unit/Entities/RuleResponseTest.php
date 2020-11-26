@@ -10,6 +10,10 @@ class RuleResponseTest extends BaseTestCase
 {
     public function testItCanCreateRuleResponseEntity(): void
     {
+        die(print_r(
+            file_get_contents(__DIR__ . '/../../')
+        ));
+
         $rank = 2;
         $isValid = false;
 
