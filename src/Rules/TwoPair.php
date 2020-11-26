@@ -4,10 +4,9 @@ declare(strict_types=1);
 namespace Roliod\TexasHUPoker\Rules;
 
 use Roliod\TexasHUPoker\Deck\Entities\Hand as HandEntity;
-use Roliod\TexasHUPoker\Rules\Contracts\Rule as RuleContract;
 use Roliod\TexasHUPoker\Rules\Entities\RuleResponse as RuleResponseEntity;
 
-class TwoPair implements RuleContract
+class TwoPair extends AbstractRule
 {
     /**
      * @const int

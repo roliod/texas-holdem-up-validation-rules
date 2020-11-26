@@ -4,11 +4,9 @@ declare(strict_types=1);
 namespace Roliod\TexasHUPoker\Rules;
 
 use Roliod\TexasHUPoker\Deck\Entities\Hand as HandEntity;
-use Roliod\TexasHUPoker\Rules\Contracts\Rule as RuleContract;
-use Roliod\TexasHUPoker\Rules\Factories\Entity as EntityFactory;
 use Roliod\TexasHUPoker\Rules\Entities\RuleResponse as RuleResponseEntity;
 
-class RoyalFlush implements RuleContract
+class RoyalFlush extends AbstractRule
 {
     /**
      * @const int
@@ -27,6 +25,7 @@ class RoyalFlush implements RuleContract
 
         return $this->buildRuleResponse(
             $sequence,
+            self::RANK,
             $isRoyalSequence
         );
     }
@@ -47,22 +46,5 @@ class RoyalFlush implements RuleContract
         }
 
         return true;
-    }
-
-    /**
-     * @param string $hand
-     * @param bool   $isRoyalSequence
-     *
-     * @return RuleResponseEntity
-     */
-    private function buildRuleResponse(
-        string $hand,
-        bool $isRoyalSequence
-    ): RuleResponseEntity {
-        return EntityFactory::buildRuleResponseEntity(
-            $hand,
-            self::RANK,
-            $isRoyalSequence
-        );
     }
 }

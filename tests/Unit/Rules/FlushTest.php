@@ -4,10 +4,10 @@ declare(strict_types=1);
 namespace Tests\Unit\Rules;
 
 use Tests\BaseTestCase;
-use Roliod\TexasHUPoker\Rules\TwoPair;
+use Roliod\TexasHUPoker\Rules\Flush;
 use Roliod\TexasHUPoker\Deck\Factories\Entity as EntityFactory;
 
-class TwoPairTest extends BaseTestCase
+class FlushTest extends BaseTestCase
 {
     /**
      * @dataProvider handDataProvider
@@ -21,7 +21,7 @@ class TwoPairTest extends BaseTestCase
     ): void {
         $handEntity = EntityFactory::buildHandEntity($sequence);
 
-        $twoPair = new TwoPair();
+        $twoPair = new Flush();
         $response = $twoPair->validate($handEntity);
 
         self::assertSame($matches, $response->getMatches());
@@ -34,7 +34,7 @@ class TwoPairTest extends BaseTestCase
     {
         return [
             'is_valid' => [
-                'sequence' => '10H 10C 5C 5H 4H',
+                'sequence' => '10H 10H 5H 5H 4H',
                 'matches' => true,
             ],
             'is_invalid' => [
