@@ -8,18 +8,21 @@ use Roliod\TexasHUPoker\Rules\Entities\RuleResponse as RuleResponseEntity;
 class Entity
 {
     /**
-     * @param int  $rank
-     * @param bool $isValid
+     * @param string $hand
+     * @param int    $rank
+     * @param bool   $matches
      *
      * @return RuleResponseEntity
      */
     public static function buildRuleResponseEntity(
+        string $hand,
         int $rank,
-        bool $isValid = true
+        bool $matches = false
     ): RuleResponseEntity {
         return new RuleResponseEntity(
+            $hand,
             $rank,
-            $isValid
+            $matches
         );
     }
 }

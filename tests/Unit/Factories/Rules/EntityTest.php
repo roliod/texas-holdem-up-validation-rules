@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Tests\Unit\Factories;
+namespace Tests\Unit\Rules\Factories;
 
 use Tests\BaseTestCase;
 use Roliod\TexasHUPoker\Rules\Factories\Entity as EntityFactory;
@@ -11,14 +11,17 @@ class EntityTest extends BaseTestCase
     public function testItCanBuildRuleResponseEntity(): void
     {
         $rank = 2;
-        $isValid = false;
+        $hand = 'hand';
+        $matches = false;
 
         $ruleResponseEntity = EntityFactory::buildRuleResponseEntity(
+            $hand,
             $rank,
-            $isValid
+            $matches
         );
 
+        self::assertSame($hand, $ruleResponseEntity->getHand());
         self::assertSame($rank, $ruleResponseEntity->getRank());
-        self::assertSame($isValid, $ruleResponseEntity->getIsValid());
+        self::assertSame($matches, $ruleResponseEntity->getMatches());
     }
 }

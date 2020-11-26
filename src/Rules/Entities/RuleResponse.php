@@ -13,18 +13,26 @@ class RuleResponse
     /**
      * @var bool
      */
-    private $isValid;
+    private $matches;
 
     /**
-     * @param int  $rank
-     * @param bool $isValid
+     * @var string
+     */
+    private $hand;
+
+    /**
+     * @param string $hand
+     * @param int    $rank
+     * @param bool   $matches
      */
     public function __construct(
+        string $hand,
         int $rank,
-        bool $isValid = true
+        bool $matches = false
     ) {
+        $this->hand = $hand;
         $this->rank = $rank;
-        $this->isValid = $isValid;
+        $this->matches = $matches;
     }
 
     /**
@@ -44,18 +52,34 @@ class RuleResponse
     }
 
     /**
-     * @param bool $isValid
+     * @param string $hand
      */
-    public function setIsValid(bool $isValid): void
+    public function setHand(string $hand): void
     {
-        $this->isValid = $isValid;
+        $this->hand = $hand;
+    }
+
+    /**
+     * @return string
+     */
+    public function getHand(): string
+    {
+        return $this->hand;
+    }
+
+    /**
+     * @param bool $matches
+     */
+    public function setMatches(bool $matches): void
+    {
+        $this->matches = $matches;
     }
 
     /**
      * @return bool
      */
-    public function getIsValid(): bool
+    public function getMatches(): bool
     {
-        return $this->isValid;
+        return $this->matches;
     }
 }

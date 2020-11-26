@@ -10,5 +10,5 @@ interface Rule
     /**
      * @return RuleResponseEntity
      */
-    public function check(): RuleResponseEntity;
+    public function validate(): RuleResponseEntity;
 }
