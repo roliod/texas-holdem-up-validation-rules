@@ -1,5 +1,5 @@
 {
-  "name": "roliod/texas-holdem-up-validation-rule",
+  "name": "roliod/texas-holdem-up-validation-rules",
   "description": "A rule engine that can determine the rank of a poker hand.",
   "type": "library",
   "license": "MIT",
@@ -19,7 +19,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Roliod\\TexasHUPokerValidator\\": "src/"
+      "Roliod\\TexasHUPoker\\": "src/"
     }
   },
   "autoload-dev": {
