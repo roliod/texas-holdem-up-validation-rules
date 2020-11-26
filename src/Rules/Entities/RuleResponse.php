@@ -18,19 +18,19 @@ class RuleResponse
     /**
      * @var string
      */
-    private $hand;
+    private $sequence;
 
     /**
-     * @param string $hand
+     * @param string $sequence
      * @param int    $rank
      * @param bool   $matches
      */
     public function __construct(
-        string $hand,
+        string $sequence,
         int $rank,
         bool $matches = false
     ) {
-        $this->hand = $hand;
+        $this->sequence = $sequence;
         $this->rank = $rank;
         $this->matches = $matches;
     }
@@ -52,19 +52,19 @@ class RuleResponse
     }
 
     /**
-     * @param string $hand
+     * @param string $sequence
      */
-    public function setHand(string $hand): void
+    public function setSequence(string $sequence): void
     {
-        $this->hand = $hand;
+        $this->sequence = $sequence;
     }
 
     /**
      * @return string
      */
-    public function getHand(): string
+    public function getSequence(): string
     {
-        return $this->hand;
+        return $this->sequence;
     }
 
     /**

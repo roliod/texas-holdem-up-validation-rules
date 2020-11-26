@@ -20,7 +20,7 @@ class EntityTest extends BaseTestCase
             $matches
         );
 
-        self::assertSame($hand, $ruleResponseEntity->getHand());
+        self::assertSame($hand, $ruleResponseEntity->getSequence());
         self::assertSame($rank, $ruleResponseEntity->getRank());
         self::assertSame($matches, $ruleResponseEntity->getMatches());
     }

@@ -11,16 +11,16 @@ class RuleResponseTest extends BaseTestCase
     public function testItCanCreateRuleResponseEntity(): void
     {
         $rank = 2;
-        $hand = 'hand';
+        $sequence = 'hand';
         $matches = false;
 
         $ruleResponseEntity = new RuleResponseEntity(
-            $hand,
+            $sequence,
             $rank,
             $matches
         );
 
-        self::assertSame($hand, $ruleResponseEntity->getHand());
+        self::assertSame($sequence, $ruleResponseEntity->getSequence());
         self::assertSame($rank, $ruleResponseEntity->getRank());
         self::assertSame($matches, $ruleResponseEntity->getMatches());
     }
@@ -28,15 +28,15 @@ class RuleResponseTest extends BaseTestCase
     public function testSetters(): void
     {
         $rank = 2;
-        $hand = 'hand';
+        $sequence = 'hand';
         $matches = false;
 
         $ruleResponseEntity = new RuleResponseEntity('hand1', 3);
         $ruleResponseEntity->setRank($rank);
-        $ruleResponseEntity->setHand($hand);
+        $ruleResponseEntity->setSequence($sequence);
         $ruleResponseEntity->setMatches($matches);
 
-        self::assertSame($hand, $ruleResponseEntity->getHand());
+        self::assertSame($sequence, $ruleResponseEntity->getSequence());
         self::assertSame($rank, $ruleResponseEntity->getRank());
         self::assertSame($matches, $ruleResponseEntity->getMatches());
     }
