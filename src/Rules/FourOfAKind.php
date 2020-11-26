@@ -38,8 +38,8 @@ class FourOfAKind extends AbstractRule
     private function isFourOfAKind(string $sequence): bool
     {
         $ranks = $this->getRanksFromSequence($sequence);
-
         $rankOccurrences = array_count_values($ranks);
+
         foreach ($rankOccurrences as $rank => $occurrence) {
             if ($occurrence === 4) {
                 return true;

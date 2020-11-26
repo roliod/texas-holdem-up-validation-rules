@@ -38,7 +38,6 @@ class Pair extends AbstractRule
     private function isPair(string $sequence): bool
     {
         $ranks = $this->getRanksFromSequence($sequence);
-
         $rankOccurrences = array_count_values($ranks);
 
         return in_array(2, $rankOccurrences, true)
