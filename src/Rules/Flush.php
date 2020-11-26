@@ -11,7 +11,7 @@ class Flush extends AbstractRule
     /**
      * @const int
      */
-    private const RANK = 2;
+    private const RANK = 5;
 
     /**
      * @param HandEntity $handEntity
