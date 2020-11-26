@@ -37,12 +37,7 @@ class Flush extends AbstractRule
      */
     private function isFlush(string $sequence): bool
     {
-        $sequenceToArray = explode(' ', $sequence);
-
-        $suits = [];
-        foreach ($sequenceToArray as $card) {
-            $suits[] = substr($card, -1);
-        }
+        $suits = $this->getSuitsFromSequence($sequence);
 
         return count(array_unique($suits)) === 1;
     }

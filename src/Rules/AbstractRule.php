@@ -27,4 +27,38 @@ abstract class AbstractRule implements RuleContract
             $matches
         );
     }
+
+    /**
+     * @param string $sequence
+     *
+     * @return array
+     */
+    protected function getRanksFromSequence(string $sequence): array
+    {
+        $cards = explode(' ', $sequence);
+
+        $ranks = [];
+        foreach ($cards as $card) {
+            $ranks[] = mb_substr($card, 0, -1);
+        }
+
+        return $ranks;
+    }
+
+    /**
+     * @param string $sequence
+     *
+     * @return array
+     */
+    protected function getSuitsFromSequence(string $sequence): array
+    {
+        $cards = explode(' ', $sequence);
+
+        $suits = [];
+        foreach ($cards as $card) {
+            $suits[] = substr($card, -1);
+        }
+
+        return $suits;
+    }
 }
