@@ -18,6 +18,28 @@ class TwoPair extends AbstractRule
      */
     public function validate(HandEntity $handEntity): RuleResponseEntity
     {
-//        die(print_r($handEntity));
+        $sequence = $handEntity->getSequence();
+        $isTwoPair = $this->isTwoPair($sequence);
+
+        return $this->buildRuleResponse(
+            $sequence,
+            self::RANK,
+            $isTwoPair
+        );
+    }
+
+    /**
+     * @param string $sequence
+     *
+     * @return bool
+     */
+    private function isTwoPair(string $sequence): bool
+    {
+        $ranks = $this->getRanksFromSequence($sequence);
+        $rankOccurrences = array_count_values($ranks);
+
+        return count($rankOccurrences) === 3
+            && isset(array_count_values($rankOccurrences)[2])
+            && array_count_values($rankOccurrences)[2] === 2;
     }
 }
