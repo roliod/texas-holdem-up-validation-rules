@@ -8,6 +8,7 @@ use Roliod\TexasHUPoker\Deck\Suite;
 use Roliod\TexasHUPoker\Rules\Contracts\Rule as RuleContract;
 use Roliod\TexasHUPoker\Deck\Factories\Entity as EntityFactory;
 use Roliod\TexasHUPoker\Exceptions\FileDoesNotExist as FileDoesNotExistException;
+use Roliod\TexasHUPoker\Exceptions\InvalidFileContent as InvalidFileContentException;
 
 class Evaluate
 {
@@ -27,7 +28,7 @@ class Evaluate
 
     /**
      * @return string
-     * @throws FileDoesNotExistException
+     * @throws FileDoesNotExistException|InvalidFileContentException
      */
     public function rank(): string
     {
@@ -37,9 +38,13 @@ class Evaluate
             throw new FileDoesNotExistException($e->getMessage());
         }
 
+        $validator = Validator::create($fileContent);
+        if ($validator->hasError()) {
+            throw new InvalidFileContentException($validator->error());
+        }
+
         $hands = explode(PHP_EOL, $fileContent);
         $convertedHands = $this->convertUnicodeSuiteCharactersToSuiteString($hands);
-
         $reordersHands = $this->convertSuiteStringToUnicodeSuite(
             $this->reorderBasedOnHierarchy($convertedHands)
         );

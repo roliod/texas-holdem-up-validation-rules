@@ -6,6 +6,7 @@ namespace Tests\Unit;
 use Tests\BaseTestCase;
 use Roliod\TexasHUPoker\Evaluate;
 use Roliod\TexasHUPoker\Exceptions\FileDoesNotExist as FileDoesNotExistException;
+use Roliod\TexasHUPoker\Exceptions\InvalidFileContent as InvalidFileContentException;
 
 class EvaluateTest extends BaseTestCase
 {
@@ -27,6 +28,15 @@ class EvaluateTest extends BaseTestCase
     {
         $this->expectException(FileDoesNotExistException::class);
         $evaluator = new Evaluate('invalid-path.text');
+        $evaluator->rank();
+    }
+
+    public function testItFailsWithInvalidFileContent(): void
+    {
+        $this->expectException(InvalidFileContentException::class);
+        $evaluator = new Evaluate(
+            __DIR__ . '/../__data/invalid.txt'
+        );
         $evaluator->rank();
     }
 }
