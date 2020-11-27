@@ -91,7 +91,7 @@ class Validator
     /**
      * @param string $deck
      *
-     * @return $this
+     * @return self
      */
     public static function create(string $deck): self
     {

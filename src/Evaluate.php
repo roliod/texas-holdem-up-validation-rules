@@ -39,8 +39,10 @@ class Evaluate
         }
 
         $validator = Validator::create($fileContent);
-        if ($validator->hasError()) {
-            throw new InvalidFileContentException($validator->error());
+        if (!$validator->isValid()) {
+            throw new InvalidFileContentException(
+                $validator->error() ?? 'Unknown Error'
+            );
         }
 
         $hands = explode(PHP_EOL, $fileContent);

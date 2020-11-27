@@ -16,7 +16,7 @@ In order to install this package can either add it directly to your `composer.js
 ```json
 {
   "require": {
-    "roliod/texas-holdem-up-validation-rules": "^1.0"
+    "roliod/texas-holdem-up-validation-rules": "^1.1.1"
   }
 }
 ```
