@@ -8,10 +8,10 @@ class Suite
     /**
      * @const string
      */
-    public const ACE = 'A';
     public const SPADE = 'S';
     public const HEART = 'H';
     public const CLUBS = 'C';
+    public const DIAMOND = 'D';
 
     /**
      * This converts unicode suites to strings
@@ -19,6 +19,9 @@ class Suite
      * @const array
      */
     public const UNICODE_TO_STRING = [
-
+        '❤' => self::HEART,
+        '♠' => self::SPADE,
+        '♣' => self::CLUBS,
+        '♦' => self::DIAMOND
     ];
 }
