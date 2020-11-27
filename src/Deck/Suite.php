@@ -12,4 +12,13 @@ class Suite
     public const SPADE = 'S';
     public const HEART = 'H';
     public const CLUBS = 'C';
+
+    /**
+     * This converts unicode suites to strings
+     *
+     * @const array
+     */
+    public const UNICODE_TO_STRING = [
+
+    ];
 }

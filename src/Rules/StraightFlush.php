@@ -14,9 +14,7 @@ class StraightFlush extends AbstractRule
     private const RANK = 2;
 
     /**
-     * @param HandEntity $handEntity
-     *
-     * @return RuleResponseEntity
+     * {@inheritDoc}
      */
     public function validate(HandEntity $handEntity): RuleResponseEntity
     {

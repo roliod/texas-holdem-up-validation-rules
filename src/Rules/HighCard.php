@@ -14,9 +14,7 @@ class HighCard extends AbstractRule
     private const RANK = 10;
 
     /**
-     * @param HandEntity $handEntity
-     *
-     * @return RuleResponseEntity
+     * {@inheritDoc}
      */
     public function validate(HandEntity $handEntity): RuleResponseEntity
     {

@@ -14,9 +14,7 @@ class Flush extends AbstractRule
     private const RANK = 5;
 
     /**
-     * @param HandEntity $handEntity
-     *
-     * @return RuleResponseEntity
+     * {@inheritDoc}
      */
     public function validate(HandEntity $handEntity): RuleResponseEntity
     {

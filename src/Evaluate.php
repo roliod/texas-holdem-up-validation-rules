@@ -11,23 +11,18 @@ class Evaluate
     private $deckFilePath;
 
     /**
-     * @var string
-     */
-    private $evaluatedDeckStoragePath;
-
-    /**
      * @param string $deckFilePath
-     * @param string $evaluatedDeckStoragePath
      */
     public function __construct(
-        string $deckFilePath,
-        string $evaluatedDeckStoragePath
+        string $deckFilePath
     ) {
         $this->deckFilePath = $deckFilePath;
-        $this->evaluatedDeckStoragePath = $evaluatedDeckStoragePath;
     }
 
-    public function rank()
+    /**
+     * @return string
+     */
+    public function rank(): string
     {
 
     }

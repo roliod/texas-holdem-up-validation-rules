@@ -15,9 +15,7 @@ class Straight extends AbstractRule
     private const RANK = 6;
 
     /**
-     * @param HandEntity $handEntity
-     *
-     * @return RuleResponseEntity
+     * {@inheritDoc}
      */
     public function validate(HandEntity $handEntity): RuleResponseEntity
     {
