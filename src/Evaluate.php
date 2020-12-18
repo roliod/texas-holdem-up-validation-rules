@@ -47,11 +47,11 @@ class Evaluate
 
         $hands = explode(PHP_EOL, $fileContent);
         $convertedHands = $this->convertUnicodeSuiteCharactersToSuiteString($hands);
-        $reordersHands = $this->convertSuiteStringToUnicodeSuite(
+        $reorderedHands = $this->convertSuiteStringToUnicodeSuite(
             $this->reorderBasedOnHierarchy($convertedHands)
         );
 
-        return implode("\n", $reordersHands);
+        return implode("\n", $reorderedHands);
     }
 
     /**
