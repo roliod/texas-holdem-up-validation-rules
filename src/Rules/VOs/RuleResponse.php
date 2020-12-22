@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Roliod\TexasHUPoker\Rules\Entities;
+namespace Roliod\TexasHUPoker\Rules\VOs;
 
 class RuleResponse
 {

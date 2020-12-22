@@ -5,7 +5,7 @@ namespace Tests\Unit\Rules;
 
 use Tests\BaseTestCase;
 use Roliod\TexasHUPoker\Rules\Flush;
-use Roliod\TexasHUPoker\Deck\Factories\Entity as EntityFactory;
+use Roliod\TexasHUPoker\Deck\Factories\VO as VOFactory;
 
 class FlushTest extends BaseTestCase
 {
@@ -19,10 +19,10 @@ class FlushTest extends BaseTestCase
         string $sequence,
         bool $matches
     ): void {
-        $handEntity = EntityFactory::buildHandEntity($sequence);
+        $handVO = VOFactory::buildHandVO($sequence);
 
         $flush = new Flush();
-        $response = $flush->validate($handEntity);
+        $response = $flush->validate($handVO);
 
         self::assertSame($matches, $response->getMatches());
     }

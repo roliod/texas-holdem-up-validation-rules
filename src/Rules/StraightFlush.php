@@ -3,8 +3,8 @@ declare(strict_types=1);
 
 namespace Roliod\TexasHUPoker\Rules;
 
-use Roliod\TexasHUPoker\Deck\Entities\Hand as HandEntity;
-use Roliod\TexasHUPoker\Rules\Entities\RuleResponse as RuleResponseEntity;
+use Roliod\TexasHUPoker\Deck\VOs\Hand as HandVO;
+use Roliod\TexasHUPoker\Rules\VOs\RuleResponse as RuleResponseVO;
 
 class StraightFlush extends AbstractRule
 {
@@ -16,10 +16,10 @@ class StraightFlush extends AbstractRule
     /**
      * {@inheritDoc}
      */
-    public function validate(HandEntity $handEntity): RuleResponseEntity
+    public function validate(HandVO $handVO): RuleResponseVO
     {
-        $sequence = $handEntity->getSequence();
-        $isStraightFlush = $this->isStraightFlush($handEntity);
+        $sequence = $handVO->getSequence();
+        $isStraightFlush = $this->isStraightFlush($handVO);
 
         return $this->buildRuleResponse(
             $sequence,
@@ -29,14 +29,14 @@ class StraightFlush extends AbstractRule
     }
 
     /**
-     * @param HandEntity $handEntity
+     * @param HandVO $handVO
      *
      * @return bool
      */
-    private function isStraightFlush(HandEntity $handEntity): bool
+    private function isStraightFlush(HandVO $handVO): bool
     {
-        $flush = (new Flush())->validate($handEntity);
-        $straight = (new Straight())->validate($handEntity);
+        $flush = (new Flush())->validate($handVO);
+        $straight = (new Straight())->validate($handVO);
 
         return $flush->getMatches() && $straight->getMatches();
     }

@@ -5,7 +5,7 @@ namespace Tests\Unit\Rules;
 
 use Tests\BaseTestCase;
 use Roliod\TexasHUPoker\Rules\HighCard;
-use Roliod\TexasHUPoker\Deck\Factories\Entity as EntityFactory;
+use Roliod\TexasHUPoker\Deck\Factories\VO as VOFactory;
 
 class HighCardTest extends BaseTestCase
 {
@@ -19,10 +19,10 @@ class HighCardTest extends BaseTestCase
         string $sequence,
         bool $matches
     ): void {
-        $handEntity = EntityFactory::buildHandEntity($sequence);
+        $handVO = VOFactory::buildHandVO($sequence);
 
         $highCard = new HighCard();
-        $response = $highCard->validate($handEntity);
+        $response = $highCard->validate($handVO);
 
         self::assertSame($matches, $response->getMatches());
     }

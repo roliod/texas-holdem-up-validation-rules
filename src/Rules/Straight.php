@@ -4,8 +4,8 @@ declare(strict_types=1);
 namespace Roliod\TexasHUPoker\Rules;
 
 use Roliod\TexasHUPoker\Deck\Rank;
-use Roliod\TexasHUPoker\Deck\Entities\Hand as HandEntity;
-use Roliod\TexasHUPoker\Rules\Entities\RuleResponse as RuleResponseEntity;
+use Roliod\TexasHUPoker\Deck\VOs\Hand as HandVO;
+use Roliod\TexasHUPoker\Rules\VOs\RuleResponse as RuleResponseVO;
 
 class Straight extends AbstractRule
 {
@@ -17,9 +17,9 @@ class Straight extends AbstractRule
     /**
      * {@inheritDoc}
      */
-    public function validate(HandEntity $handEntity): RuleResponseEntity
+    public function validate(HandVO $handVO): RuleResponseVO
     {
-        $sequence = $handEntity->getSequence();
+        $sequence = $handVO->getSequence();
         $isStraight = $this->isStraight($sequence);
 
         return $this->buildRuleResponse(

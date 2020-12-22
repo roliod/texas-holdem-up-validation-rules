@@ -5,7 +5,7 @@ namespace Tests\Unit\Rules;
 
 use Tests\BaseTestCase;
 use Roliod\TexasHUPoker\Rules\Straight;
-use Roliod\TexasHUPoker\Deck\Factories\Entity as EntityFactory;
+use Roliod\TexasHUPoker\Deck\Factories\VO as VOFactory;
 
 class StraightTest extends BaseTestCase
 {
@@ -19,10 +19,10 @@ class StraightTest extends BaseTestCase
         string $sequence,
         bool $matches
     ): void {
-        $handEntity = EntityFactory::buildHandEntity($sequence);
+        $handVO = VOFactory::buildHandVO($sequence);
 
         $straight = new Straight();
-        $response = $straight->validate($handEntity);
+        $response = $straight->validate($handVO);
 
         self::assertSame($matches, $response->getMatches());
     }

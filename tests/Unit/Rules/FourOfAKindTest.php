@@ -5,7 +5,7 @@ namespace Tests\Unit\Rules;
 
 use Tests\BaseTestCase;
 use Roliod\TexasHUPoker\Rules\FourOfAKind;
-use Roliod\TexasHUPoker\Deck\Factories\Entity as EntityFactory;
+use Roliod\TexasHUPoker\Deck\Factories\VO as VOFactory;
 
 class FourOfAKindTest extends BaseTestCase
 {
@@ -19,10 +19,10 @@ class FourOfAKindTest extends BaseTestCase
         string $sequence,
         bool $matches
     ): void {
-        $handEntity = EntityFactory::buildHandEntity($sequence);
+        $handVO = VOFactory::buildHandVO($sequence);
 
         $fourOfAKind = new FourOfAKind();
-        $response = $fourOfAKind->validate($handEntity);
+        $response = $fourOfAKind->validate($handVO);
 
         self::assertSame($matches, $response->getMatches());
     }

@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Roliod\TexasHUPoker\Deck\Entities;
+namespace Roliod\TexasHUPoker\Deck\VOs;
 
 class Hand
 {

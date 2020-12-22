@@ -3,15 +3,15 @@ declare(strict_types=1);
 
 namespace Roliod\TexasHUPoker\Rules\Contracts;
 
-use Roliod\TexasHUPoker\Deck\Entities\Hand as HandEntity;
-use Roliod\TexasHUPoker\Rules\Entities\RuleResponse as RuleResponseEntity;
+use Roliod\TexasHUPoker\Deck\VOs\Hand as HandVO;
+use Roliod\TexasHUPoker\Rules\VOs\RuleResponse as RuleResponseVO;
 
 interface Rule
 {
     /**
-     * @param HandEntity $handEntity
+     * @param HandVO $handVO
      *
-     * @return RuleResponseEntity
+     * @return RuleResponseVO
      */
-    public function validate(HandEntity $handEntity): RuleResponseEntity;
+    public function validate(HandVO $handVO): RuleResponseVO;
 }

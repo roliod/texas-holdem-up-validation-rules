@@ -5,7 +5,7 @@ namespace Tests\Unit\Rules;
 
 use Tests\BaseTestCase;
 use Roliod\TexasHUPoker\Rules\StraightFlush;
-use Roliod\TexasHUPoker\Deck\Factories\Entity as EntityFactory;
+use Roliod\TexasHUPoker\Deck\Factories\VO as VOFactory;
 
 class StraightFlushTest extends BaseTestCase
 {
@@ -19,10 +19,10 @@ class StraightFlushTest extends BaseTestCase
         string $sequence,
         bool $matches
     ): void {
-        $handEntity = EntityFactory::buildHandEntity($sequence);
+        $handVO = VOFactory::buildHandVO($sequence);
 
         $twoPair = new StraightFlush();
-        $response = $twoPair->validate($handEntity);
+        $response = $twoPair->validate($handVO);
 
         self::assertSame($matches, $response->getMatches());
     }

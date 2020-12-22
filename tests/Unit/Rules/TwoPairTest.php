@@ -5,7 +5,7 @@ namespace Tests\Unit\Rules;
 
 use Tests\BaseTestCase;
 use Roliod\TexasHUPoker\Rules\TwoPair;
-use Roliod\TexasHUPoker\Deck\Factories\Entity as EntityFactory;
+use Roliod\TexasHUPoker\Deck\Factories\VO as VOFactory;
 
 class TwoPairTest extends BaseTestCase
 {
@@ -19,10 +19,10 @@ class TwoPairTest extends BaseTestCase
         string $sequence,
         bool $matches
     ): void {
-        $handEntity = EntityFactory::buildHandEntity($sequence);
+        $handVO = VOFactory::buildHandVO($sequence);
 
         $twoPair = new TwoPair();
-        $response = $twoPair->validate($handEntity);
+        $response = $twoPair->validate($handVO);
 
         self::assertSame($matches, $response->getMatches());
     }
