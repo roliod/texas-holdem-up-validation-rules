@@ -5,7 +5,7 @@ namespace Tests\Unit\Rules;
 
 use Tests\BaseTestCase;
 use Roliod\TexasHUPoker\Rules\FullHouse;
-use Roliod\TexasHUPoker\Deck\Factories\Entity as EntityFactory;
+use Roliod\TexasHUPoker\Deck\Factories\VO as VOFactory;
 
 class FullHouseTest extends BaseTestCase
 {
@@ -19,10 +19,10 @@ class FullHouseTest extends BaseTestCase
         string $sequence,
         bool $matches
     ): void {
-        $handEntity = EntityFactory::buildHandEntity($sequence);
+        $handVO = VOFactory::buildHandVO($sequence);
 
         $fullHouse = new FullHouse();
-        $response = $fullHouse->validate($handEntity);
+        $response = $fullHouse->validate($handVO);
 
         self::assertSame($matches, $response->getMatches());
     }

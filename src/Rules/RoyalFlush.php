@@ -3,8 +3,8 @@ declare(strict_types=1);
 
 namespace Roliod\TexasHUPoker\Rules;
 
-use Roliod\TexasHUPoker\Deck\Entities\Hand as HandEntity;
-use Roliod\TexasHUPoker\Rules\Entities\RuleResponse as RuleResponseEntity;
+use Roliod\TexasHUPoker\Deck\VOs\Hand as HandVO;
+use Roliod\TexasHUPoker\Rules\VOs\RuleResponse as RuleResponseVO;
 
 class RoyalFlush extends AbstractRule
 {
@@ -16,9 +16,9 @@ class RoyalFlush extends AbstractRule
     /**
      * {@inheritDoc}
      */
-    public function validate(HandEntity $handEntity): RuleResponseEntity
+    public function validate(HandVO $handVO): RuleResponseVO
     {
-        $sequence = $handEntity->getSequence();
+        $sequence = $handVO->getSequence();
         $isRoyalSequence = $this->isRoyalFlushSequence($sequence);
 
         return $this->buildRuleResponse(

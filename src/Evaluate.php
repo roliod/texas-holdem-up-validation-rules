@@ -6,7 +6,7 @@ namespace Roliod\TexasHUPoker;
 use Exception;
 use Roliod\TexasHUPoker\Deck\Suite;
 use Roliod\TexasHUPoker\Rules\Contracts\Rule as RuleContract;
-use Roliod\TexasHUPoker\Deck\Factories\Entity as EntityFactory;
+use Roliod\TexasHUPoker\Deck\Factories\VO as VOFactory;
 use Roliod\TexasHUPoker\Exceptions\FileDoesNotExist as FileDoesNotExistException;
 use Roliod\TexasHUPoker\Exceptions\InvalidFileContent as InvalidFileContentException;
 
@@ -81,7 +81,7 @@ class Evaluate
     {
         $deckHierarchy = [];
         foreach ($hands as $hand) {
-            $hand = EntityFactory::buildHandEntity($hand);
+            $hand = VOFactory::buildHandVO($hand);
 
             foreach (Config::RULES as $rule) {
                 /** @var RuleContract $rule */
